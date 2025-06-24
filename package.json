@@ -1,0 +1,67 @@
+{
+  "name": "ultimate-react-next-snippets",
+  "displayName": "Ultimate React & Next.js Snippets",
+  "description": "The definitive snippet pack for modern React, Next.js App Router, and Pages Router development.",
+  "version": "0.0.1",
+  "publisher": "MeKa",
+  "author": {
+    "name": "Metin Kantar",
+    "email": "meka@metinkantar.com",
+    "bio": "Metin Kantar is a software engineer with a passion for building modern web applications. He specializes in React and Next.js, focusing on creating efficient and scalable solutions. With a background in computer science and extensive experience in frontend development, Metin is dedicated to delivering high-quality code and innovative features.",
+    "location": "Belgium, Europe",
+    "avatar": "https://avatars.githubusercontent.com/u/12345678?v=4",
+    "social": {
+      "github": "https://github.com/metinkantar",
+      "twitter": "https://twitter.com/metinkantar",
+      "linkedin": "https://www.linkedin.com/in/metinkantar/",
+      "website": "https://metinkantar.com"
+    },
+    "homepage": "https://github.com/metinkantar/ultimate-react-next-snippets",
+    "icon": "images/logo.png",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/metinkantar/ultimate-react-next-snippets.git"
+    },
+    "bugs": {
+      "url": "https://github.com/metinkantar/ultimate-react-next-snippets/issues"
+    },
+    "engines": {
+      "vscode": "^1.101.0"
+    },
+    "keywords": [
+      "react",
+      "reactjs",
+      "next.js",
+      "nextjs",
+      "app router",
+      "pages router",
+      "snippets",
+      "typescript",
+      "javascript"
+    ],
+    "categories": [
+      "Snippets"
+    ],
+    "contributes": {
+      "snippets": [
+        {
+          "language": "javascript",
+          "path": "./snippets/snippets.code-snippets"
+        },
+        {
+          "language": "javascriptreact",
+          "path": "./snippets/snippets.code-snippets"
+        },
+        {
+          "language": "typescript",
+          "path": "./snippets/snippets.code-snippets"
+        },
+        {
+          "language": "typescriptreact",
+          "path": "./snippets/snippets.code-snippets"
+        }
+      ]
+    },
+    "license": "MIT"
+  }
+}

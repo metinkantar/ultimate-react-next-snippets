@@ -1,0 +1,542 @@
+{
+    "//--- React: Core Components & Hooks ---//": {
+        "description": " --- Snippets for creating core React components and using hooks --- ",
+        "body": [
+            ""
+        ],
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "React Arrow Function Component Export": {
+        "prefix": "rafce",
+        "body": [
+            "import React from 'react'",
+            "",
+            "const ${1:${TM_FILENAME_BASE}} = () => {",
+            "  return (",
+            "    <div>$0</div>",
+            "  )",
+            "}",
+            "",
+            "export default ${1:${TM_FILENAME_BASE}}"
+        ],
+        "description": "Creates a React Arrow Function Component with an export.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "React Functional Component": {
+        "prefix": "rfc",
+        "body": [
+            "import React from 'react'",
+            "",
+            "export default function ${1:${TM_FILENAME_BASE}}() {",
+            "  return (",
+            "    <div>$0</div>",
+            "  )",
+            "}"
+        ],
+        "description": "Creates a React Functional Component.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "useState Snippet": {
+        "prefix": "useStateSnippet",
+        "body": [
+            "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:initialState})"
+        ],
+        "description": "Creates a React useState hook.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "useEffect Snippet": {
+        "prefix": "useEffectSnippet",
+        "body": [
+            "useEffect(() => {",
+            "  $0",
+            "}, [])"
+        ],
+        "description": "Creates a React useEffect hook.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "useContext Snippet": {
+        "prefix": "useContextSnippet",
+        "body": [
+            "const ${1:contextValue} = useContext(${2:MyContext})"
+        ],
+        "description": "Creates a React useContext hook.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "useRef Snippet": {
+        "prefix": "useRefSnippet",
+        "body": [
+            "const ${1:myRef} = useRef(${2:null})"
+        ],
+        "description": "Creates a React useRef hook.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "//--- Next.js: App Router ---//": {
+        "description": " --- Snippets for the Next.js App Router --- ",
+        "body": [
+            ""
+        ],
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Use Client Directive": {
+        "prefix": "nUseClient",
+        "body": [
+            "\"use client\";",
+            "",
+            "$0"
+        ],
+        "description": "Adds the \"use client\"; directive to the top of the file.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Use Server Directive": {
+        "prefix": "nUseServer",
+        "body": [
+            "\"use server\";",
+            "",
+            "$0"
+        ],
+        "description": "Adds the \"use server\"; directive to the top of a file or function.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Page Component": {
+        "prefix": "nPage",
+        "body": [
+            "export default function ${TM_FILENAME_BASE}() {",
+            "  return (",
+            "    <main>",
+            "      <h1>${1:Page Title}</h1>",
+            "    </main>",
+            "  );",
+            "}"
+        ],
+        "description": "Creates a basic Page Component for the Next.js App Router (page.tsx).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Dynamic Page Component": {
+        "prefix": "nPageDynamic",
+        "body": [
+            "type PageProps = {",
+            "  params: { slug: string };",
+            "  searchParams: { [key: string]: string | string[] | undefined };",
+            "};",
+            "",
+            "export default function ${TM_FILENAME_BASE}({ params, searchParams }: PageProps) {",
+            "  return (",
+            "    <main>",
+            "      <h1>Slug: {params.slug}</h1>",
+            "    </main>",
+            "  );",
+            "}"
+        ],
+        "description": "Creates a Dynamic Page Component with params and searchParams ([slug]/page.tsx).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Root Layout": {
+        "prefix": "nLayout",
+        "body": [
+            "import type { Metadata } from 'next';",
+            "import { Inter } from 'next/font/google';",
+            "import './globals.css';",
+            "",
+            "const inter = Inter({ subsets: ['latin'] });",
+            "",
+            "export const metadata: Metadata = {",
+            "  title: '${1:Create Next App}',",
+            "  description: 'Generated by create next app',",
+            "};",
+            "",
+            "export default function RootLayout({",
+            "  children,",
+            "}: Readonly<{",
+            "  children: React.ReactNode;",
+            "}>) {",
+            "  return (",
+            "    <html lang=\"en\">",
+            "      <body className={inter.className}>{children}</body>",
+            "    </html>",
+            "  );",
+            "}"
+        ],
+        "description": "Creates a Root Layout Component for the Next.js App Router (layout.tsx).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Loading UI": {
+        "prefix": "nLoading",
+        "body": [
+            "export default function Loading() {",
+            "  // You can add any UI inside Loading, including a Skeleton.",
+            "  return <div>Loading...</div>;",
+            "}"
+        ],
+        "description": "Creates a Loading UI for a route segment (loading.tsx).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Error UI": {
+        "prefix": "nError",
+        "body": [
+            "\"use client\"; // Error components must be Client Components",
+            "",
+            "import { useEffect } from 'react';",
+            "",
+            "export default function Error({",
+            "  error,",
+            "  reset,",
+            "}: {",
+            "  error: Error & { digest?: string };",
+            "  reset: () => void;",
+            "}) {",
+            "  useEffect(() => {",
+            "    // Log the error to an error reporting service",
+            "    console.error(error);",
+            "  }, [error]);",
+            "",
+            "  return (",
+            "    <div>",
+            "      <h2>Something went wrong!</h2>",
+            "      <button onClick={() => reset()}>Try again</button>",
+            "    </div>",
+            "  );",
+            "}"
+        ],
+        "description": "Creates an Error Boundary for a route segment (error.tsx).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Not Found UI": {
+        "prefix": "nNotFound",
+        "body": [
+            "import Link from 'next/link';",
+            "",
+            "export default function NotFound() {",
+            "  return (",
+            "    <div>",
+            "      <h2>Not Found</h2>",
+            "      <p>Could not find requested resource</p>",
+            "      <Link href=\"/\">Return Home</Link>",
+            "    </div>",
+            "  );",
+            "}"
+        ],
+        "description": "Creates a Not Found UI for a route segment (not-found.tsx).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Global Not Found": {
+        "prefix": "nGlobalNotFound",
+        "body": [
+            "// app/not-found.tsx",
+            "import Link from 'next/link'",
+            "",
+            "export default function NotFound() {",
+            "  return (",
+            "    <html>",
+            "      <body>",
+            "        <h2>Something went wrong!</h2>",
+            "        <Link href=\"/\">Return Home</Link>",
+            "      </body>",
+            "    </html>",
+            "  )",
+            "}"
+        ],
+        "description": "Creates a root not-found.js file to handle all unmatched URLs.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Template Component": {
+        "prefix": "nTemplate",
+        "body": [
+            "export default function Template({ children }: { children: React.ReactNode }) {",
+            "  return <div>{children}</div>",
+            "}"
+        ],
+        "description": "Creates a Template component, similar to a layout but re-mounted on navigation (template.tsx).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: GET API Route": {
+        "prefix": "nApiGet",
+        "body": [
+            "import { NextResponse } from 'next/server';",
+            "",
+            "export async function GET(request: Request) {",
+            "  return NextResponse.json({ message: 'Hello World' });",
+            "}"
+        ],
+        "description": "Creates a GET API Route Handler (route.ts).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: POST API Route": {
+        "prefix": "nApiPost",
+        "body": [
+            "import { NextResponse } from 'next/server';",
+            "",
+            "export async function POST(request: Request) {",
+            "  const data = await request.json();",
+            "  return NextResponse.json({ received: data });",
+            "}"
+        ],
+        "description": "Creates a POST API Route Handler (route.ts).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Static Metadata": {
+        "prefix": "nMetadataStatic",
+        "body": [
+            "import type { Metadata } from 'next';",
+            "",
+            "export const metadata: Metadata = {",
+            "  title: '${1:Page Title}',",
+            "  description: '${2:Page description}',",
+            "};"
+        ],
+        "description": "Creates a static metadata object for a page or layout.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Dynamic Metadata": {
+        "prefix": "nMetadataDynamic",
+        "body": [
+            "import type { Metadata, ResolvingMetadata } from 'next';",
+            "",
+            "type Props = {",
+            "  params: { id: string };",
+            "  searchParams: { [key: string]: string | string[] | undefined };",
+            "};",
+            "",
+            "export async function generateMetadata(",
+            "  { params, searchParams }: Props,",
+            "  parent: ResolvingMetadata",
+            "): Promise<Metadata> {",
+            "  const id = params.id;",
+            "  const product = await fetch(`https://.../products/\\${id}`).then((res) => res.json());",
+            "  const previousImages = (await parent).openGraph?.images || []",
+            "  return {",
+            "    title: product.title,",
+            "    openGraph: {",
+            "      images: ['/some-specific-page-image.jpg', ...previousImages],",
+            "    },",
+            "  };",
+            "}"
+        ],
+        "description": "Creates a dynamic `generateMetadata` function for a page.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: generateStaticParams": {
+        "prefix": "nStaticParams",
+        "body": [
+            "export async function generateStaticParams() {",
+            "  const posts = await fetch('https://.../posts').then((res) => res.json());",
+            "",
+            "  return posts.map((post: { id: string }) => ({",
+            "    slug: post.id,",
+            "  }));",
+            "}"
+        ],
+        "description": "Next.js: Creates `generateStaticParams` to statically generate routes.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Middleware": {
+        "prefix": "nMiddleware",
+        "body": [
+            "import { NextResponse } from 'next/server';",
+            "import type { NextRequest } from 'next/server';",
+            "",
+            "export function middleware(request: NextRequest) {",
+            "  return NextResponse.redirect(new URL('/home', request.url))",
+            "}",
+            "",
+            "export const config = {",
+            "  matcher: '/about/:path*',",
+            "};"
+        ],
+        "description": "Next.js: Creates a middleware function (middleware.ts).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Link Component": {
+        "prefix": "nLink",
+        "body": [
+            "<Link href=\"/${1:path}\">${2:Link Text}</Link>"
+        ],
+        "description": "Creates a Next.js Link component.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Image Component": {
+        "prefix": "nImage",
+        "body": [
+            "<Image",
+            "  src={${1:/image.jpg}}",
+            "  alt=\"${2:Description}\"",
+            "  width={${3:500}}",
+            "  height={${4:300}}",
+            "  // priority",
+            "/>"
+        ],
+        "description": "Creates a Next.js Image component.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "App Router: Script Component": {
+        "prefix": "nScript",
+        "body": [
+            "<Script src=\"https://example.com/script.js\" strategy=\"${1|lazyOnload,afterInteractive,beforeInteractive,worker|}\" />"
+        ],
+        "description": "Creates a Next.js Script component.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "//--- Next.js: Pages Router ---//": {
+        "description": " --- Snippets for the Next.js Pages Router --- ",
+        "body": [
+            ""
+        ],
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Pages Router: Page Component": {
+        "prefix": "nPagesPage",
+        "body": [
+            "import type { NextPage } from 'next'",
+            "",
+            "const ${1:${TM_FILENAME_BASE}}: NextPage = () => {",
+            "  return (",
+            "    <div>",
+            "      <h1>Welcome to Pages Router</h1>",
+            "    </div>",
+            "  )",
+            "}",
+            "",
+            "export default ${1:${TM_FILENAME_BASE}}"
+        ],
+        "description": "Next.js: Creates a Pages Router Page Component.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Pages Router: getStaticProps": {
+        "prefix": "nGetStaticProps",
+        "body": [
+            "import type { GetStaticProps } from 'next'",
+            "",
+            "export const getStaticProps: GetStaticProps = async (context) => {",
+            "  // ...",
+            "  return {",
+            "    props: { $0 }",
+            "  }",
+            "}"
+        ],
+        "description": "Next.js: Creates a getStaticProps function.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Pages Router: getServerSideProps": {
+        "prefix": "nGetServerSideProps",
+        "body": [
+            "import type { GetServerSideProps } from 'next'",
+            "",
+            "export const getServerSideProps: GetServerSideProps = async (context) => {",
+            "  // ...",
+            "  return {",
+            "    props: { $0 }",
+            "  }",
+            "}"
+        ],
+        "description": "Next.js: Creates a getServerSideProps function.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Pages Router: getStaticPaths": {
+        "prefix": "nGetStaticPaths",
+        "body": [
+            "import type { GetStaticPaths } from 'next'",
+            "",
+            "export const getStaticPaths: GetStaticPaths = async () => {",
+            "  // ...",
+            "  return {",
+            "    paths: [],",
+            "    fallback: false",
+            "  }",
+            "}"
+        ],
+        "description": "Next.js: Creates a getStaticPaths function.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Pages Router: API Route": {
+        "prefix": "nPagesApi",
+        "body": [
+            "import type { NextApiRequest, NextApiResponse } from 'next'",
+            "",
+            "type Data = {",
+            "  name: string",
+            "}",
+            "",
+            "export default function handler(",
+            "  req: NextApiRequest,",
+            "  res: NextApiResponse<Data>",
+            ") {",
+            "  res.status(200).json({ name: 'John Doe' })",
+            "}"
+        ],
+        "description": "Next.js: Creates a Pages Router API route.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Pages Router: _app.tsx": {
+        "prefix": "nApp",
+        "body": [
+            "import type { AppProps } from 'next/app'",
+            "import '../styles/globals.css'",
+            "",
+            "function MyApp({ Component, pageProps }: AppProps) {",
+            "  return <Component {...pageProps} />",
+            "}",
+            "",
+            "export default MyApp"
+        ],
+        "description": "Next.js: Creates a custom App component (_app.tsx).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Pages Router: _document.tsx": {
+        "prefix": "nDocument",
+        "body": [
+            "import { Html, Head, Main, NextScript } from 'next/document'",
+            "",
+            "export default function Document() {",
+            "  return (",
+            "    <Html>",
+            "      <Head />",
+            "      <body>",
+            "        <Main />",
+            "        <NextScript />",
+            "      </body>",
+            "    </Html>",
+            "  )",
+            "}"
+        ],
+        "description": "Next.js: Creates a custom Document component (_document.tsx).",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "//--- Helpers & Console ---//": {
+        "description": " --- Helper and Console Snippets --- ",
+        "body": [
+            ""
+        ],
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Console Log": {
+        "prefix": "clg",
+        "body": [
+            "console.log($1)"
+        ],
+        "description": "console.log()",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Console Log Object": {
+        "prefix": "clo",
+        "body": [
+            "console.log('$1', $1)"
+        ],
+        "description": "Logs a variable with its name as a string.",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Console Error": {
+        "prefix": "cer",
+        "body": [
+            "console.error($1)"
+        ],
+        "description": "console.error()",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    },
+    "Console Warn": {
+        "prefix": "cwa",
+        "body": [
+            "console.warn($1)"
+        ],
+        "description": "console.warn()",
+        "scope": "javascript,typescript,javascriptreact,typescriptreact"
+    }
+}
